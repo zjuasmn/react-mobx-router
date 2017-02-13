@@ -12,7 +12,7 @@ const defaultMatch = {
 };
 const historyProp = (props, propName, componentName) => {
   if (!(props[propName] instanceof History)) {
-    return new Error( `Invalid prop \`${propName}\` supplied to ${componentName}. Only \`mobx-history\` object can be set. Validation failed.`)
+    return new Error(`Invalid prop \`${propName}\` supplied to ${componentName}. Only \`mobx-history\` object can be set. Validation failed.`)
   }
 };
 
@@ -25,18 +25,21 @@ export default class Router extends React.Component {
     match: defaultMatch
   };
   
-  componentWillReceiveProps(nextProps){
-    if(nextProps.history != this.props.history){
-      this.props.history.dispose();
+  componentWillMount() {
+    this.props.history.startListen();
+  }
+  
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.history != this.props.history) {
+      this.props.history.stopListen();
     }
   }
   
-  componentWillUnmount(){
-    this.props.history.dispose();
+  componentWillUnmount() {
+    this.props.history.stopListen();
   }
   
   render() {
-    
     const {match, children, history} = this.props;
     return <Provider history={history} match={match}>{children}</Provider>;
   }
