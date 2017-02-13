@@ -3,10 +3,10 @@ import matchPath from './matchPath'
 import {observable, action, extendObservable} from 'mobx'
 import {observer, inject, Provider} from 'mobx-react'
 
-const defaultProps = ({match, computedMatch, path, exact, strict, component, render, props, history, ...otherProps}) => otherProps;
-/**
- * The public API for matching a single path and rendering.
- */
+const defaultMapping = ({match:{params}, computedMatch, path, exact, strict, component, render, history, ...props}) =>
+  ({...params, ...props});
+
+
 @inject('history', 'match')
 @observer
 export default class Route extends React.Component {
@@ -25,13 +25,11 @@ export default class Route extends React.Component {
     ])
   };
   static defaultProps = {
-  
-    mapping: defaultProps
+    mapping: defaultMapping
   };
   
-  constructor(props) {
-    super(props);
-    this.updateMatch(props);
+  componentWillMount() {
+    this.updateMatch(this.props);
   }
   
   componentWillReceiveProps(nextProps) {
@@ -41,35 +39,34 @@ export default class Route extends React.Component {
   @action updateMatch(props) {
     
     let {computedMatch, path, exact, strict} = props;
-    console.log(props.history.location.pathname, path);
+    // console.log(props.history.location.pathname, path);
     extendObservable(this._match, computedMatch || matchPath(props.history.location.pathname, path, {
         exact,
         strict
-      }) || {url:null});
+      }) || {url: null});
   }
   
   render() {
-    const {path, exact, strict, render, children, component:Comp, mapping} = this.props;
-    // const match = this._match;
-    const match = matchPath(props.history.location.pathname, path, {
-      exact,
-      strict
-    });
+    const {path, exact, strict, component:Comp, render,  history, match:matchContext, mapping, ...props} = this.props;
+    let {children, ...oProps} = props;
+    const match = this._match;
+    // const match = matchPath(history.location.pathname, path, {exact, strict});
     // if (render) {
     //   return <Provider match={match}>
     //     {render({match, ...this.props})}
     //   </Provider>
     // }
-    if (match) {
-    //   const matchProps = props({...match.props, ...this.props});
-    //   if (Comp) {
-    //     return <Provider match={match}>
-    //       <Comp {...matchProps}/>
-    //     </Provider>;
-    //   } else if (children) {
-        return <Provider match={match}>
-           {React.cloneElement(React.Children.only(children), {...matchProps})}
-         </Provider>;
+    if (match.url) {
+      
+      //   if (Comp) {
+      //     return <Provider match={match}>
+      //       <Comp {...matchProps}/>
+      //     </Provider>;
+      //   } else if (children) {
+      const matchProps = mapping({match, ...oProps});
+      return <Provider match={match}>
+        {React.cloneElement(React.Children.only(children), {...matchProps})}
+      </Provider>;
       // }
     }
     
