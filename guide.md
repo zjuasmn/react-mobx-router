@@ -55,7 +55,7 @@ You can edit it in [Codepen](http://codepen.io)
 
 
 
-```jsx
+```js
 const {HashRouter as Router, Route, Link} = ReactMobxRouter;
 // import {HashRouter as Router, Route, Link} from 'react-mobx-router'
 
