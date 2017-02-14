@@ -1,7 +1,8 @@
 # react-mobx-router
 
+Project still in progress...
 Declarative routing for `React` with `mobx` magic!
-## You can read the whole document **[HERE](https://zjuasmn.gitbooks.io/react-mobx-router/)**
+## You can read the whole document in gitbooks **[HERE](https://zjuasmn.gitbooks.io/react-mobx-router/)**
 
 ## Installation
 
