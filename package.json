@@ -8,7 +8,8 @@
   "license": "MIT",
   "scripts": {
     "test": "mocha --require babel-register src/__test__",
-    "start": "webpack-dev-server --content-base ./src/__test__"
+    "start": "webpack-dev-server --content-base ./src/__test__",
+    "demo": "webpack-dev-server --config ./demo/demo.config.js --content-base ./demo"
   },
   "keywords": [
     "mobx",
@@ -21,7 +22,6 @@
     "mobx": "^3.1.0",
     "mobx-history": "^0.3.0",
     "mobx-react": "^4.1.0",
-    "path": "^0.12.7",
     "path-to-regexp": "^1.7.0",
     "react": "^15.4.2"
   },

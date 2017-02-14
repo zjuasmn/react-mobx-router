@@ -1,16 +1,15 @@
 import React, {PropTypes} from 'react'
 import {inject} from 'mobx-react'
+import {resolve} from './Utils'
 
 const isModifiedEvent = (event) =>
-  !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey)
+  !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey);
 
-/**
- * The public API for rendering a router-aware <a>.
- */
-@inject('history')
-class Link extends React.Component {
+@inject('history', 'match')
+export default class Link extends React.Component {
   
   static propTypes = {
+    relative: PropTypes.bool,
     onClick: PropTypes.func,
     target: PropTypes.string,
     replace: PropTypes.bool,
@@ -21,13 +20,30 @@ class Link extends React.Component {
   };
   
   static defaultProps = {
-    replace: false
+    to: null,
+    replace: false,
+    relative: false,
+  };
+  
+  _getLocation = () => {
+    let {to, relative, history, match} = this.props;
+    let basePath = relative ? match.url : history.location.pathname;
+    
+    if (typeof to === 'string') {
+      return {pathname: resolve(basePath, to)};
+    } else {
+      let {pathname, ...oProps} = to;
+      return {
+        pathname: resolve(basePath, pathname),
+        ...oProps
+      }
+    }
   };
   
   handleClick = (event) => {
-    if (this.props.onClick)
+    if (this.props.onClick) {
       this.props.onClick(event);
-    
+    }
     if (
       !event.defaultPrevented && // onClick prevented default
       event.button === 0 && // ignore right clicks
@@ -36,33 +52,20 @@ class Link extends React.Component {
     ) {
       event.preventDefault();
       
-      let {replace, to, history} = this.props;
-      if(typeof to === 'string' && to[0] == '.'){
-        to = history.location.pathname+to.substr(1);
-    
-      }
-      if (replace) {
-        history.replace(to)
-      } else {
-        history.push(to)
-      }
+      let {history, replace} = this.props;
+      let _to = this._getLocation();
+      replace ? history.replace(_to) : history.push(_to);
     }
   };
   
+  
   render() {
-    
-    let {replace, to, history, ...props} = this.props; // eslint-disable-line no-unused-vars
-    window.h = history;
-    if(typeof to === 'string' && to[0] == '.'){
-      to = history.location.pathname+to.substr(1);
-     
+    let {to, relative, replace, history, match, ...oProps} = this.props;
+    if (to == null){
+      return <a href="javascript:" {...oProps} />
     }
-    const href = history.createHref(
-      typeof to === 'string' ? {pathname: to} : to
-    );
-    
-    return <a {...props} onClick={this.handleClick} href={href}/>
+    const href = history.createHref(this._getLocation());
+    return <a {...oProps} onClick={this.handleClick} href={href}/>
   }
 }
 
-export default Link

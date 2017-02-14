@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react'
-import matchPath from './matchPath'
+import {matchPath} from './Utils'
 import {observer, inject} from 'mobx-react'
 /**
  * The public API for rendering the first <Route> that matches.
