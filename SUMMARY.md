@@ -1,5 +1,10 @@
 # Summary
 
+## Guide
+ * [Router](methods.md)
+ 
+### demos
+ 
 ## Component
 
 * [Router](methods.md)
