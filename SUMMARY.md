@@ -2,7 +2,7 @@
 
 
 
-* [Getting Started](guide.md)
+[Getting Started](guide.md)
 
 ## Guide
 
