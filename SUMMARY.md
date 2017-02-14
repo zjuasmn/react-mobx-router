@@ -1,26 +1,24 @@
 # Summary
 
 ## Guide
-* [Getting Started](guide.md)
-* [Depency injection](di.md)
-
-
-## Concept
-* [context](context.md)
-* [history](history.md)
-* [match](match.md)
-* [update](update.md)
+* [Getting Started](README.md)
 
 ## Features
-* [Dynamic matching](dynamic-matching.md)
-* [Nested Route](nested-route.md)
+* [Dynamic matching](Features/dynamic-matching.md)
+* [Nested Route](Features/nested-route.md)
+* [Precise Update](Features/precise-update.md)
 
 ## Component
-
 * [Router](Components/Router.md)
 * [Route](Components/Route.md)
 * [Link](Components/Link.md)
 * [Switch](Components/Switch.md)
+
+## Concept
+* [context](Concepts/context.md)
+* [history](Concepts/history.md)
+* [match](Concepts/match.md)
+* [precise update](Concepts/precise-update.md)
 
 ## Demos
 * [Basic]()
