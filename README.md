@@ -76,19 +76,18 @@ const BasicExample = () => (
       </Route>
       
       <Route path="topics" componet='div'>
-          <h2>Topics</h2>
-          <ul>
-            <li><Link context to='rendering'>Rendering with React</Link></li>
-            <li><Link context to='components'>Components</Link></li>
-            <li><Link context>Link without `to`</Link></li>
-          </ul>
-          <Route exact>
-            <h3>Please select a topic.</h3>
-          </Route>
-          <Route path=':topicId'>
-            <Topic />
-          </Route>
-        </div>
+        <h2>Topics</h2>
+        <ul>
+          <li><Link context to='rendering'>Rendering with React</Link></li>
+          <li><Link context to='components'>Components</Link></li>
+          <li><Link context>Link without `to`</Link></li>
+        </ul>
+        <Route exact>
+          <h3>Please select a topic.</h3>
+        </Route>
+        <Route path=':topicId'>
+          <Topic />
+        </Route>
       </Route>
   </Router>
 );
