@@ -1,9 +1,13 @@
 const webpack = require('webpack');
 const path = require('path');
 module.exports = {
+  entry: [
+    './src/__test__/index.js'
+  ],
   output: {
-    library: 'reactMobxRouter',
-    libraryTarget: 'umd'
+    path: path.resolve(__dirname, './src/__test__'),
+    filename: 'test.bundle.js',
+    // libraryTarget: 'umd'
   },
   
   module: {
@@ -18,10 +22,10 @@ module.exports = {
     })
   ],
   externals: {
-    react: 'React',
-    'react-dom': 'ReactDOM',
-    mobx: 'mobx',
-    // 'mobx-react': 'mobxReact',
-    // 'mobx-history': 'mobxHistory',
+    describe: 'describe',
+    it: 'it',
+    'react/addons': true,
+    'react/lib/ReactContext': true,
+    'react/lib/ExecutionEnvironment': true
   }
 };
