@@ -8,7 +8,7 @@ const defaultMapping = ({match:{params}, computedMatch, component, render, ...pr
   ({...params, ...props});
 const buildElement = (Comp, props, children) => !!Comp && (React.isValidElement(Comp) ? React.cloneElement(Comp, props) :
   <Comp {...props}>{children}</Comp>);
-const PropTypeFuncOrElememt = React.PropTypes.oneOfType([PropTypes.func, PropTypes.element]);
+const PropTypeFuncOrElememt = React.PropTypes.oneOfType([PropTypes.func, PropTypes.element, PropTypes.string]);
 
 @observer
 export default class Match extends React.Component {

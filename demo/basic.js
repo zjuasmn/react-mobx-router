@@ -16,43 +16,33 @@ const BasicExample = () => (
       
       <hr/>
       
-      <Route exact>
-        <div>
-          <h2>Home</h2>
-        </div>
+      <Route exact component={Page}>
+        Home
       </Route>
       
-      <Route path="about">
-        <div>
-          <h2>About</h2>
-        </div>
-      </Route>
+      <Route path="about" component={<Page>About</Page>}/>
       
-      <Route path="topics">
-        <div>
-          <h2>Topics</h2>
-          <ul>
-            <li><Link context to='rendering'>Rendering with React</Link></li>
-            <li><Link context to='components'>Components</Link></li>
-            <li><Link context>Link without `to`</Link></li>
-          </ul>
-          <Route exact>
-            <h3>Please select a topic.</h3>
-          </Route>
-          <Route path=':topicId'>
-            <Topic />
-          </Route>
-        </div>
+      <Route path="topics" component="div">
+        <h2>Topics</h2>
+        <ul>
+          <li><Link context to='rendering'>Rendering with React</Link></li>
+          <li><Link context to='components'>Components</Link></li>
+          <li><Link context>Link without `to`</Link></li>
+        </ul>
+        <Route exact>
+          <h3>Please select a topic.</h3>
+        </Route>
+        <Route path=':topicId'>
+          <Topic />
+        </Route>
       </Route>
     </div>
   </Router>
 );
-
-const Topic = ({topicId}) => (
-  <div>
-    <h3>{topicId}</h3>
-    <Link relative to="..">Back to Topics</Link>
-  </div>
-);
+const Page = ({children, ...props}) => <div><h2>{children}</h2></div>;
+const Topic = ({topicId}) => (<div>
+  <h3>{topicId}</h3>
+  <Link context to="..">Back to Topics</Link>
+</div>);
 
 export default BasicExample

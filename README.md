@@ -60,22 +60,16 @@ const BasicExample = () => (
         <li><Link to="/about">About</Link></li>
         <li><Link to="/topics">Topics</Link></li>
       </ul>
-      
+
       <hr/>
-      
-      <Route exact>
-        <div>
-          <h2>Home</h2>r
-        </div>
+
+      <Route exact component={Page}>
+        Home
       </Route>
-      
-      <Route path="about">
-        <div>
-          <h2>About</h2>
-        </div>
-      </Route>
-      
-      <Route path="topics" componet='div'>
+
+      <Route path="about" component={<Page>About</Page>}/>
+
+      <Route path="topics" component="div">
         <h2>Topics</h2>
         <ul>
           <li><Link context to='rendering'>Rendering with React</Link></li>
@@ -89,15 +83,14 @@ const BasicExample = () => (
           <Topic />
         </Route>
       </Route>
+    </div>
   </Router>
 );
-
-const Topic = ({topicId}) => (
-  <div>
-    <h3>{topicId}</h3>
-    <Link context to="..">Back to Topics</Link>
-  </div>
-);
+const Page = ({children, ...props}) => <div><h2>{children}</h2></div>;
+const Topic = ({topicId}) => (<div>
+  <h3>{topicId}</h3>
+  <Link context to="..">Back to Topics</Link>
+</div>);
 
 ReactDOM.render(BasicExample,document.getElementById('root');
 ```
