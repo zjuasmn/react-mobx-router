@@ -5,14 +5,10 @@
             "split": true,
             "languages": [
                 {
-                    "lang": "js",
+                    "lang": "jsx",
                     "name": "JavaScript",
                     "default": true
-                },
-                {
-                    "lang": "go",
-                    "name": "Go"
-                }
+                }                
             ]
         }
     }

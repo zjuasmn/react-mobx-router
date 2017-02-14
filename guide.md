@@ -1,38 +1,22 @@
 # Guide
 
-
-## Installation
-
 {% method -%}
-
-## Install {#install}
-
-The first thing is to get the GitBook API client.
-
-{% sample lang="js" -%}
-```bash
-$ npm install gitbook-api
-```
-
-{% sample lang="go" -%}
-```bash
-$ go get github.com/GitbookIO/go-gitbook-api
-```
-{% endmethod %}
+## Installation
 
 Using [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/):
 
-    $ npm install --save react-mobx-router
-    or
-    $ yarn add react-mobx-router
+```jsx
+$ npm install --save react-mobx-router
+$ yarn add react-mobx-router
+```
 
 Use CDN
+
 - Assuming `react` is imported.(Since you are development a react project) 
 - Import `mobx` [https://unpkg.com/mobx/lib/mobx.umd.js](https://unpkg.com/mobx/lib/mobx.umd.js)
-
 - The include [https://unpkg.com/react-mobx-router/umd/react-mobx-router.js](https://unpkg.com/react-mobx-router/umd/react-mobx-router.js)
 
-Then get the `Router` `Route` `Link` classes as below
+Then get the `Router` `Route` `Link` component as below
 
 ```jsx
 // using ES6 modules
@@ -46,16 +30,27 @@ var Route = require('react-mobx-router').Router
 // using CDN
 var Link = ReactMobxRouter.Link
 ```
+{% endmethod %}
+
 
 ## Getting started
 Below is a modified version of `BasicExample` in [`React Router(v4)`](https://reacttraining.com/react-router/examples/basic)
 
 You can edit it in [Codepen](http://codepen.io)
+
+{% method -%}
 ### HTML
 ```html
 <div id='root'></div>
 ```
+{% endmethod %}
+
+
+
 ### Javascript(ES2015)
+
+
+
 ```jsx
 const {HashRouter as Router, Route, Link} = ReactMobxRouter;
 // import {HashRouter as Router, Route, Link} from 'react-mobx-router'
