@@ -93,19 +93,6 @@ Component to render when route matches. When `component` is `node`, `children` w
 // would render <div>name</div>
 ```
 
-- **...props**
-
-Rest properties would pass to rendered element as it is, with original element properties taking precedence.
-
-```jsx
-
-<Route style={{color:'red'}} className='user'>
-  <div style={{color:'blue'}} >alice</div>
-</Route>
-// would render
-<div style={{color:'blue'}} className='user'>alice</div>
-
-```
 
 - **mapping**
 
@@ -117,6 +104,7 @@ Rest properties would pass to rendered element as it is, with original element p
 
 `mapping` defines how the properties of `Route` would pass to its rendered element. By default, only params would pass since it is the most wanted behavior. you might want to change it to conform children properties type definitions.
 
+For example, we might want to use [`react-mobx-utils/Resolve`](https://github.com/zjuasmn/react-mobx-utils#resolve) to resolve promise of fetching data from server based on params on URL.
 ```jsx
 let myMapping = ({match:{params}) => ({promise
 server.getUserbyId(params.id)})
@@ -127,34 +115,24 @@ server.getUserbyId(params.id)})
   </Resolve>
 </Route>
 // when URL is `/user/123`, it would render
-<Resolve name='user' promise={server.getUserbyId(params.id)}>
+<Resolve name='user' promise={server.getUserbyId(123)}>
   <User />
 </Resolve>
 // After successfully fetching from server with {name:"alice",id:"123"}, it would render
 <User user={{name:"alice",id:"123"}}/>
-  
 ```
 
 
+- **...props**
 
+Rest properties would pass to rendered element as it is, with original element properties taking precedence.
 
+```jsx
 
-When true, will only match if the path matches the location.pathname exactly.
+<Route style={{color:'red'}} className='user'>
+<div style={{color:'blue'}} >alice</div>
+</Route>
+// would render
+<div style={{color:'blue'}} className='user'>alice</div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Behavior
-
-
-
+```
