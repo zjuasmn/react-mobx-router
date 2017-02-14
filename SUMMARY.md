@@ -26,5 +26,9 @@
 
 ## Demos
 
-* [Basic](Demos/basic.md)
+* [Basic](http://codepen.io/zjuasmn/pen/KaJyYz?editor=0010)
+* [Precise Update](http://codepen.io/zjuasmn/pen/qRgPxb?editor=0010)
+* [URL params](http://codepen.io/zjuasmn/pen/ZLwvQJ?editors=0010)
+* [Recursive Paths](http://codepen.io/zjuasmn/pen/egxyBe?editors=0010)
+* [Route Config](http://codepen.io/zjuasmn/pen/jydYLB?editors=0010)
 

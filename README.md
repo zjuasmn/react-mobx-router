@@ -37,7 +37,7 @@ var Link = ReactMobxRouter.Link
 ## Getting started
 Below is a modified version of `BasicExample` in [`React Router(v4)`](https://reacttraining.com/react-router/examples/basic)
 
-You can edit it in [Codepen](http://codepen.io)
+You can edit it in [Codepen](http://codepen.io/zjuasmn/pen/KaJyYz?editor=0010)
 
 ### HTML
 ```html
@@ -52,9 +52,7 @@ You can edit it in [Codepen](http://codepen.io)
 const {HashRouter as Router, Route, Link} = ReactMobxRouter;
 // import {HashRouter as Router, Route, Link} from 'react-mobx-router'
 
-
-const BasicExample = () => (
-  <Router>
+const App = () => (  
     <div>
       <ul>
         <li><Link to="/">Home</Link></li>
@@ -84,8 +82,7 @@ const BasicExample = () => (
           <Topic />
         </Route>
       </Route>
-    </div>
-  </Router>
+    </div>  
 );
 const Page = ({children, ...props}) => <div><h2>{children}</h2></div>;
 const Topic = ({topicId}) => (<div>
@@ -93,5 +90,5 @@ const Topic = ({topicId}) => (<div>
   <Link context to="..">Back to Topics</Link>
 </div>);
 
-ReactDOM.render(BasicExample,document.getElementById('root');
+ReactDOM.render(<Router><App/></Router>,document.getElementById('root');
 ```
