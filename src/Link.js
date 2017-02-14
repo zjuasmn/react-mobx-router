@@ -9,7 +9,7 @@ const isModifiedEvent = (event) =>
 export default class Link extends React.Component {
   
   static propTypes = {
-    relative: PropTypes.bool,
+    context: PropTypes.bool,
     onClick: PropTypes.func,
     target: PropTypes.string,
     replace: PropTypes.bool,
@@ -22,12 +22,12 @@ export default class Link extends React.Component {
   static defaultProps = {
     to: null,
     replace: false,
-    relative: false,
+    context: false,
   };
   
   _getLocation = () => {
-    let {to, relative, history, match} = this.props;
-    let basePath = relative ? match.url : history.location.pathname;
+    let {to, context, history, match} = this.props;
+    let basePath = context ? match.url : history.location.pathname;
     
     if (typeof to === 'string') {
       return {pathname: resolve(basePath, to)};
@@ -60,7 +60,7 @@ export default class Link extends React.Component {
   
   
   render() {
-    let {to, relative, replace, history, match, ...oProps} = this.props;
+    let {to, context, replace, history, match, ...oProps} = this.props;
     if (to == null){
       return <a href="javascript:" {...oProps} />
     }
