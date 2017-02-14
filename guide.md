@@ -2,6 +2,7 @@
 
 
 ## Installation
+
 {% method -%}
 
 ## Install {#install}
