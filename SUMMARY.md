@@ -1,4 +1,4 @@
-# react-mobx-router
+# Summary
 
 * Guide
   * [Getting Started](README.md)
@@ -6,7 +6,7 @@
   * [Dynamic matching](Features/dynamic-matching.md)
   * [Nested Route](Features/nested-route.md)
   * [Precise Update](Features/precise-update.md)
-* Component
+* [Components](component.md)
   * [Router](Components/Router.md)
   * [Route](Components/Route.md)
   * [Link](Components/Link.md)
@@ -23,4 +23,4 @@
   * [Recursive Paths](http://codepen.io/zjuasmn/pen/egxyBe?editors=0010)
   * [Route Config](http://codepen.io/zjuasmn/pen/jydYLB?editors=0010)
   * [No Match](http://codepen.io/zjuasmn/pen/KaJZov?editors=0010)
-  
+
