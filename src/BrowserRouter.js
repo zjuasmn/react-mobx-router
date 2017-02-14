@@ -1,5 +1,4 @@
-import React from 'react'
-import PropTypes from 'react/lib/ReactPropTypes'
+import React, {PropTypes} from 'react'
 import Router from './Router'
 import createHistory from 'mobx-history/createBrowserHistory'
 
