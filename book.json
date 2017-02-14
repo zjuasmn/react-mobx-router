@@ -1,5 +1,5 @@
 {
-    "plugins": [ "github","theme-api" ],
+    "plugins": [ "github"],
     "pluginsConfig": {
         "github":{
             "url": "https://github.com/zjuasmn/react-mobx-router"
