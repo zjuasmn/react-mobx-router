@@ -1,4 +1,6 @@
-# Defining Methods
+# Router
+Router is just a `Provider` with `mobx-history` in it.
+
 
 Methods allow you to smoothly display code examples in different languages.
 
