@@ -1,0 +1,25 @@
+.navigator {
+
+    display: flex;
+}
+
+.navigator a {
+    display: block;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+}
+.navigator a[disabled]{
+    color: grey;
+}
+.navigator form {
+    flex: 1
+}
+
+.navigator input {
+    width: 100%;
+
+}

@@ -42,6 +42,7 @@
     "babel-preset-stage-0": "^6.22.0",
     "babel-register": "^6.22.0",
     "chai": "^3.5.0",
+    "css-loader": "^0.26.1",
     "enzyme": "^2.7.1",
     "mocha": "^3.2.0",
     "proxyquire": "^1.7.11",
@@ -50,6 +51,7 @@
     "react-mobx-utils": "^0.1.0",
     "readline-sync": "^1.4.6",
     "sinon": "^1.17.7",
+    "style-loader": "^0.13.1",
     "webpack": "^2.2.1",
     "webpack-dev-server": "^2.3.0"
   }

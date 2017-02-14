@@ -5,8 +5,7 @@ import {
   Link
 } from '../src'
 
-const BasicExample = () => (
-  <Router>
+const App = () => (
     <div>
       <ul>
         <li><Link to="/">Home</Link></li>
@@ -37,7 +36,6 @@ const BasicExample = () => (
         </Route>
       </Route>
     </div>
-  </Router>
 );
 const Page = ({children, ...props}) => <div><h2>{children}</h2></div>;
 const Topic = ({topicId}) => (<div>
@@ -45,4 +43,4 @@ const Topic = ({topicId}) => (<div>
   <Link context to="..">Back to Topics</Link>
 </div>);
 
-export default BasicExample
+export default App
