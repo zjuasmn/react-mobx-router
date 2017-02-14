@@ -1,14 +1,17 @@
 # Guide
 
-{% method -%}
+
 ## Installation
 
+{% method -%}
 Using [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/):
-{% sample -%}
-```jsx
+{% common -%}
+```
 $ npm install --save react-mobx-router
 $ yarn add react-mobx-router
 ```
+{% endmethod %}
+
 
 Use CDN
 
@@ -30,7 +33,7 @@ var Route = require('react-mobx-router').Router
 // using CDN
 var Link = ReactMobxRouter.Link
 ```
-{% endmethod %}
+
 
 
 ## Getting started
