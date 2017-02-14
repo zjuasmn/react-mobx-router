@@ -1,6 +1,8 @@
-# Guide
+# react-mobx-router
 
-Read the whole document in [gitbook](https://zjuasmn.gitbooks.io/react-mobx-router/)
+Declarative routing for `React` with `mobx` magic!
+## You can read the whole document **[HERE](https://zjuasmn.gitbooks.io/react-mobx-router/)**
+
 ## Installation
 
 Use [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/):
@@ -37,20 +39,16 @@ Below is a modified version of `BasicExample` in [`React Router(v4)`](https://re
 
 You can edit it in [Codepen](http://codepen.io)
 
-{% method -%}
 ### HTML
 ```html
 <div id='root'></div>
 ```
-{% endmethod %}
-
-
 
 ### Javascript(ES2015)
 
 
 
-```javascript
+```jsx
 const {HashRouter as Router, Route, Link} = ReactMobxRouter;
 // import {HashRouter as Router, Route, Link} from 'react-mobx-router'
 
