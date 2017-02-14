@@ -1,10 +1,12 @@
 # Summary
 
 ## Guide
- * [Guide](guide.md)
- 
-### demos
- 
+
+* [Guide](guide.md)
+* [Dynamic matching](dynamic-matching.md)
+
+## demos
+
 ## Component
 
 * [Router](methods.md)
