@@ -1,8 +1,10 @@
 {
-    "plugins": [ "theme-api" ],
+    "plugins": [ "github","theme-api" ],
     "pluginsConfig": {
+        "github":{
+            "url": "https://github.com/zjuasmn/react-mobx-router"
+        },
         "theme-api": {
-            "split": true,
             "languages": [
                 {
                     "lang": "jsx",
