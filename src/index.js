@@ -1,12 +1,17 @@
 import Route from './Route'
-import {default as Router, HashRouter} from './Router'
+import Router from './Router'
+import BrowserRouter from './BrowserRouter'
+import HashRouter from './HashRouter'
+import MemoryRouter from './MemoryRouter'
 import Switch from './Switch'
 import Link from './Link'
 
 module.exports = {
-  HashRouter,
-  Route,
   Router,
+  BrowserRouter,
+  HashRouter,
+  MemoryRouter,
+  Route,
   Switch,
   Link,
 };

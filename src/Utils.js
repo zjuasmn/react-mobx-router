@@ -77,33 +77,37 @@ const compilePath = (pattern, options) => {
   return compiledPattern
 };
 
-/**
- * Public API for matching a URL pathname to a path pattern.
+/***
+ *
+ * @param pathname
+ * @param path abs path
+ * @param options
+ * @returns {*} null is not match,
  */
 export function matchPath(pathname, path, options = {}){
-  const {exact = false, strict = false} = options
+  const {exact = false, strict = false} = options;
   
   if (!path)
-    return {url: pathname, isExact: true, params: {}}
+    return {url: pathname, isExact: true, params: {}};
   
-  const {re, keys} = compilePath(path, {end: exact, strict})
-  const match = re.exec(pathname)
+  const {re, keys} = compilePath(path, {end: exact, strict});
+  const match = re.exec(pathname);
   
   if (!match)
-    return null
+    return null;
   
-  const [url, ...values] = match
-  const isExact = pathname === url
+  const [url, ...values] = match;
+  const isExact = pathname === url;
   
   if (exact && !isExact)
-    return null
+    return null;
   
   return ({
     path, // the path pattern used to match
     url: path === '/' && url === '' ? '/' : url, // the matched portion of the URL
     isExact, // whether or not we matched exactly
     params: keys.reduce((memo, key, index) => {
-      memo[key.name] = values[index]
+      memo[key.name] = values[index];
       return memo
     }, {})
   })
