@@ -1,6 +1,6 @@
 # Guide
 
-
+Read the whole document in [gitbook](https://zjuasmn.gitbooks.io/react-mobx-router/)
 ## Installation
 
 Use [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/):
