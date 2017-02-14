@@ -4,7 +4,7 @@
 ## Installation
 
 Using [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/):
-{% sample lang="js" -%}
+{% sample -%}
 ```jsx
 $ npm install --save react-mobx-router
 $ yarn add react-mobx-router
