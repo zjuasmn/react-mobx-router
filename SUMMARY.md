@@ -1,7 +1,7 @@
 # Summary
 
 ## Guide
- * [Router](methods.md)
+ * [Guide](guide.md)
  
 ### demos
  
