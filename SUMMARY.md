@@ -17,10 +17,10 @@
 
 ## Component
 
-* [Router](methods.md)
-* [Route](route.md)
-* [Link](link.md)
-* [Switch](switch.md)
+* [Router](Components/Router.md)
+* [Route](Components/Route.md)
+* [Link](Components/Link.md)
+* [Switch](Components/Switch.md)
 
 ## Demos
 * [Basic]()

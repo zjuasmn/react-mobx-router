@@ -28,7 +28,6 @@ If `true`, navigation is based on matched url in  inner most `Route` holds this 
 
 ```jsx
 // Current URL is `/user/123`
-
 <Route path='/user' component='div>
   <Link context to='./books'></Link> {/* navigate to `/user/books` */}
   <Link to='./books'>Edit</Link> {/* navigate to `/user/123/books` */}
