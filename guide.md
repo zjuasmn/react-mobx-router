@@ -12,7 +12,7 @@ $ yarn add react-mobx-router
 ```
 {% endmethod %}
 
-
+{% method -%}
 Use CDN
 
 - Assuming `react` is imported.(Since you are development a react project) 
@@ -21,6 +21,7 @@ Use CDN
 
 Then get the `Router` `Route` `Link` component as below
 
+{% common -%}
 ```jsx
 // using ES6 modules
 import {BrowserRouter, Route, Link} from 'react-mobx-router'
@@ -33,7 +34,7 @@ var Route = require('react-mobx-router').Router
 // using CDN
 var Link = ReactMobxRouter.Link
 ```
-
+{% endmethod %}
 
 
 ## Getting started
