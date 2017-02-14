@@ -11,7 +11,7 @@
   * [Route](Components/Route.md)
   * [Link](Components/Link.md)
   * [Switch](Components/Switch.md)
-* Concept
+* [Concept](concept.md)
   * [context](Concepts/context.md)
   * [history](Concepts/history.md)
   * [match](Concepts/match.md)
@@ -24,3 +24,4 @@
   * [Recursive Paths](http://codepen.io/zjuasmn/pen/egxyBe?editors=0010)
   * [Route Config](http://codepen.io/zjuasmn/pen/jydYLB?editors=0010)
   * [No Match](http://codepen.io/zjuasmn/pen/KaJZov?editors=0010)
+
