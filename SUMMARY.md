@@ -2,7 +2,8 @@
 
 
 
-* [Guide](guide.md)
+* [Getting Started](guide.md)
+
 ## Guide
 
 * [Depency injection](di.md)
