@@ -32,9 +32,9 @@ const BasicExample = () => (
         <div>
           <h2>Topics</h2>
           <ul>
-            <li><Link relative to='rendering'>Rendering with React</Link></li>
-            <li><Link relative to='components'>Components</Link></li>
-            <li><Link relative>Link without `to`</Link></li>
+            <li><Link context to='rendering'>Rendering with React</Link></li>
+            <li><Link context to='components'>Components</Link></li>
+            <li><Link context>Link without `to`</Link></li>
           </ul>
           <Route exact>
             <h3>Please select a topic.</h3>
