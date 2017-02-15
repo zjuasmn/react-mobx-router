@@ -1,7 +1,7 @@
 # Summary
 
 * Guide
-  * [Getting Started](docs/README.md)
+  * [Getting Started](README.md)
 * Features
   * [Dynamic matching](docs/Features/dynamic-matching.md)
   * [Nested Route](docs/Features/nested-route.md)
