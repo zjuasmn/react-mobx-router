@@ -3,7 +3,7 @@
 Project still in progress...
 Declarative routing for `React` with `mobx` magic!
 
-## You can read the whole document in gitbooks **[HERE](https://zjuasmn.gitbooks.io/react-mobx-router/)**
+## You can read the whole document on  **[gitbooks](https://zjuasmn.gitbooks.io/react-mobx-router/)**
 
 ## Installation
 
@@ -11,6 +11,7 @@ Use [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/):
 
 ```
 $ npm install --save react-mobx-router
+or 
 $ yarn add react-mobx-router
 ```
 
