@@ -1,6 +1,6 @@
 # Summary
 
-* Guide
+* [Guide](guide.md)
   * [Getting Started](README.md)
 * Features
   * [Dynamic matching](docs/Features/dynamic-matching.md)
@@ -24,3 +24,4 @@
   * [Recursive Paths](http://codepen.io/zjuasmn/pen/egxyBe?editors=0010)
   * [Route Config](http://codepen.io/zjuasmn/pen/jydYLB?editors=0010)
   * [No Match](http://codepen.io/zjuasmn/pen/KaJZov?editors=0010)
+
