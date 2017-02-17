@@ -1,6 +1,6 @@
 {
   "name": "react-mobx-router",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Declarative routing for React with Mobx Magic!",
   "main": "index.js",
   "repository": "https://github.com/zjuasmn/react-mobx-router.git",
