@@ -8,6 +8,13 @@ The `match` object contains information about how a `<Route path>` matched the U
   
 Key/value pairs parsed from the URL corresponding to the dynamic segments of the path. 
 
+- **path**
+  - type: `string`
+
+The `path` prop in innermost `Route`.
+
+
+
 - **url**
   - type: `string`
 
