@@ -1,4 +1,7 @@
-# react-mobx-router
+# react-mobx-router [![npm package][npm-badge]][npm] [![GitHub issues](https://img.shields.io/github/issues/zjuasmn/react-mobx-router.svg)](https://github.com/zjuasmn/react-mobx-router/issues) [![Build Status](https://travis-ci.org/zjuasmn/react-mobx-router.svg?branch=master)](https://travis-ci.org/zjuasmn/react-mobx-router) [![Coverage Status](https://coveralls.io/repos/github/zjuasmn/react-mobx-router/badge.svg?branch=master)](https://coveralls.io/github/zjuasmn/react-mobx-router?branch=master)
+                    
+[npm-badge]: https://img.shields.io/npm/v/react-mobx-router.svg?style=flat-square
+[npm]: https://www.npmjs.org/package/react-mobx-router
 
 Project still in progress...
 Declarative routing for `React` with `mobx` magic!

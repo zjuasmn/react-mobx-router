@@ -1,7 +1,8 @@
 import React, {PropTypes} from 'react'
 import History from 'mobx-history/History'
 import {Provider} from 'mobx-react'
-
+import {inject} from 'mobx-react'
+import invariant from 'invariant'
 /**
  * The public API for putting history on context.router.
  */
@@ -19,10 +20,6 @@ const historyProp = (props, propName, componentName) => {
 export default class Router extends React.Component {
   static propTypes = {
     history: historyProp,
-    match: PropTypes.object
-  };
-  static defaultProps = {
-    match: defaultMatch
   };
   
   componentWillMount() {
@@ -40,7 +37,7 @@ export default class Router extends React.Component {
   }
   
   render() {
-    const {match, children, history} = this.props;
-    return <Provider history={history} match={match}>{children}</Provider>;
+    const {children, history} = this.props;
+    return <Provider history={history} match={defaultMatch}>{children}</Provider>;
   }
 }
