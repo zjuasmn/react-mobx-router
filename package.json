@@ -14,7 +14,7 @@
     "prerelease": "npm run build",
     "release": "node ./scripts/release.js",
     "test": "cross-env NODE_ENV=test nyc --reporter=html --reporter=text mocha src/__test__",
-    "start": "cross-env NODE_ENV=test nyc --reporter=html --reporter=text mocha src/__test__ -w",
+    "start": "cross-env NODE_ENV=test DEBUG=react-mobx-router:* nyc --reporter=html --reporter=text mocha src/__test__ -w",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "demo": "webpack-dev-server --config ./demo/demo.config.js --content-base ./demo"
   },
@@ -37,7 +37,8 @@
     "mobx-history": "^1.0.1",
     "mobx-react": "^4.1.0",
     "path-to-regexp": "^1.7.0",
-    "react": "^15.0.0"
+    "react": "^15.0.0",
+    "react-utilities": "^0.5.1"
   },
   "devDependencies": {
     "babel": "^6.5.2",
@@ -62,7 +63,6 @@
     "proxyquire": "^1.7.11",
     "react-addons-test-utils": "^15.4.2",
     "react-dom": "^15.4.2",
-    "react-mobx-utils": "^0.2.0",
     "readline-sync": "^1.4.6",
     "sinon": "^1.17.7",
     "style-loader": "^0.13.1",

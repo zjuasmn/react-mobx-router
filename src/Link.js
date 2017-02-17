@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react'
 import {inject} from 'mobx-react'
-import {resolve} from './Utils'
+import {resolve} from './utils'
 
 const isModifiedEvent = (event) =>
   !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey);

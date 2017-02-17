@@ -5,6 +5,7 @@ import HashRouter from './HashRouter'
 import MemoryRouter from './MemoryRouter'
 import Switch from './Switch'
 import Link from './Link'
+import NavLink from './NavLink'
 
 module.exports = {
   Router,
@@ -14,4 +15,5 @@ module.exports = {
   Route,
   Switch,
   Link,
+  NavLink,
 };

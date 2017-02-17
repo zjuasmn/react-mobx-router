@@ -1,51 +1,31 @@
 import React, {PropTypes} from "react";
 import {observable, action, extendObservable} from "mobx";
-import {observer, Provider} from "mobx-react";
+import {observer, inject} from "mobx-react";
+import {resolve, matchPath} from "./utils";
+import {RenderablePropType} from "react-utilities/utils";
+import Delegate from 'react-utilities/Delegate'
 
-// const defaultMapping = ({match:{params}, computedMatch, path, exact, strict, component, render, history, ...props}) =>
-//   ({...params, ...props});
-const defaultMapping = ({match:{params}, computedMatch, component, render, ...props}) =>
-  ({...params, ...props});
-const buildElement = (Comp, props, children) => !!Comp && (React.isValidElement(Comp) ? React.cloneElement(Comp, props) :
-  <Comp {...props}>{children}</Comp>);
-const PropTypeFuncOrElememt = React.PropTypes.oneOfType([PropTypes.func, PropTypes.element, PropTypes.string]);
-
+@inject('history', 'match')
 @observer
 export default class Match extends React.Component {
   @observable match = {};
   static propTypes = {
     computedMatch: PropTypes.object, // private, from <Switch>
-    mapping: PropTypes.func,
-    component: PropTypeFuncOrElememt,
+    path: PropTypes.string.isRequired,
+    exact: PropTypes.bool,
+    strict: PropTypes.bool,
+    component: RenderablePropType,
   };
   static defaultProps = {
-    mapping: defaultMapping
+    exact: false,
+    strict: false,
   };
   
-  componentWillMount() {
-    this.updateMatch(this.props);
-  }
-  
-  componentWillReceiveProps(nextProps) {
-    this.updateMatch(nextProps);
-  }
-  
-  @action updateMatch(props) {
-    extendObservable(this.match, props.computedMatch);
-  }
-  
   render() {
-    const {component, mapping, children, ...props} = this.props;
-    const match = this.match;
-    const matchProps = mapping({match, ...props});
+    let {computedMatch, path, exact, strict, history:{location:{pathname}}, match:{url}, ...props} = this.props;
+    let match = computedMatch || matchPath(pathname, resolve(url, path), {exact, strict});
     
-    return <Provider match={match}>
-      {
-        component
-          ? buildElement(component, mapping({match, ...props}), children)
-          : buildElement(React.Children.only(children), mapping({match, ...props}))
-      }
-    </Provider>;
+    return <Delegate match={match} {...props}/>;
   }
 }
 

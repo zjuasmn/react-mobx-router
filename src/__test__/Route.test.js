@@ -51,10 +51,9 @@ describe('<Route />', () => {
     
     // expect(wrapper.contains(<div><div>sub</div></div>)).to.be.true;
     history.location = '/sub/1';
-    console.log(wrapper.html());
     expect(wrapper.html()).to.be.eql(`<div><div>sub</div><div>1</div></div>`);
   });
-  xit('can be nested with relative path', () => {
+  it('can be nested with relative path', () => {
     setWrapperChildren(<Route path="/sub">
       <div>
         <div>sub</div>
@@ -71,8 +70,13 @@ describe('<Route />', () => {
       </div>
     </Route>);
     history.location = '/sub';
-    console.log(wrapper.html())
-    expect(wrapper.contains(<div><div>sub</div></div>)).to.be.true;
+    expect(wrapper.html()).to.be.equal('<div><div>sub</div><!-- react-empty: 4 --><!-- react-empty: 5 --></div>');
+  });
+  it('sets params to children',()=>{
+    setWrapperChildren(<Route path="/sub/:id" component="div">
+    </Route>);
+    history.location = '/sub/1';
+    expect(wrapper.html()).to.be.equal('<div id="1"></div>');
   });
   describe('path', () => {
     it('should render children component when path is match as prefix', () => {
@@ -82,11 +86,11 @@ describe('<Route />', () => {
       
       history.location = '/sub';
       // console.log(history.location.pathname, wrapper.debug());
-      expect(wrapper.contains(<div>sub</div>)).to.be.true;
+      expect(wrapper.contains(<div>sub</div>)).to.be.eql(true);
       history.location = '/sub/2';
-      expect(wrapper.contains(<div>sub</div>)).to.be.true;
+      expect(wrapper.contains(<div>sub</div>)).to.be.eql(true);
       history.location = '/other';
-      expect(wrapper.contains(<div>sub</div>)).to.be.false;
+      expect(wrapper.contains(<div>sub</div>)).to.be.eql(false);
     });
     
     it('should always render when path is not set', () => {

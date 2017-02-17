@@ -1,6 +1,6 @@
 import {expect} from "chai";
 
-import {resolve,matchPath} from "../Utils";
+import {resolve,matchPath} from "../utils";
 
 
 describe('resolve', () => {
