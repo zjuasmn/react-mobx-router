@@ -1,19 +1,9 @@
-import Route from './Route'
-import Router from './Router'
-import BrowserRouter from './BrowserRouter'
-import HashRouter from './HashRouter'
-import MemoryRouter from './MemoryRouter'
-import Switch from './Switch'
-import Link from './Link'
-import NavLink from './NavLink'
-
-module.exports = {
-  Router,
-  BrowserRouter,
-  HashRouter,
-  MemoryRouter,
-  Route,
-  Switch,
-  Link,
-  NavLink,
-};
+export Router from './Router'
+export BrowserRouter from './BrowserRouter'
+export HashRouter from './HashRouter'
+export MemoryRouter from './MemoryRouter'
+export Route from './Route'
+export Switch from './Switch'
+export Link from './Link'
+export NavLink from './NavLink'
+export Match from './Match'

@@ -21,32 +21,32 @@ export default class Route extends React.Component {
     exact: false,
     strict: false,
   };
+  componentWillReact() {
+    debug("I will re-render, since the route has changed!");
+  }
+  render() {
+    debug('update:', this.props);
+    let {computedMatch, path, exact, strict, history:{location:{pathname}}, match:{url}, ...props} = this.props;
+    let match = computedMatch || matchPath(pathname, resolve(url, path), {exact, strict});
+    return match && <MatchProvider match={match}>
+        <Delegate watch {...props} {...match.params}/>
+      </MatchProvider>;
+    
+  }
+}
+
+class MatchProvider extends React.Component{
   @observable match = {};
-  
+  @action updateMatch(props) {
+      extendObservable(this.match, props.match);
+  }
   componentWillMount() {
     this.updateMatch(this.props);
   }
-  
-  componentWillUpdate() {
-    this.updateMatch(this.props);
+  componentWillReceiveProps(nextProps) {
+    this.updateMatch(nextProps);
   }
-  
-  @action updateMatch(props) {
-    let {computedMatch, path, exact, strict, history:{location:{pathname}}, match:{url}} = props;
-    let match = computedMatch || matchPath(pathname, resolve(url, path), {exact, strict});
-    if (!match) {
-      this.match.url = null;
-    } else {
-      extendObservable(this.match, match);
-    }
-  }
-  
-  render() {
-    let {computedMatch, path, exact, strict, history:{location:{pathname}}, match:{url}, ...props} = this.props;
-    
-    return this.match.url && <Provider match={this.match}>
-        <Delegate watch {...props} {...this.match.params}/>
-      </Provider>;
-    
+  render(){
+    return <Provider match={this.match}>{this.props.children}</Provider>
   }
 }
