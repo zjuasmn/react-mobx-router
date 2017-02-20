@@ -29,7 +29,7 @@ export default class Route extends React.Component {
     let {computedMatch, path, exact, strict, history:{location:{pathname}}, match:{url}, ...props} = this.props;
     let match = computedMatch || matchPath(pathname, resolve(url, path), {exact, strict});
     return match && <MatchProvider match={match}>
-        <Delegate watch {...props} {...match.params}/>
+        <Delegate {...props} {...match.params}/>
       </MatchProvider>;
     
   }
