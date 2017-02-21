@@ -6,7 +6,7 @@ import Router from "../Router";
 import createMemoryHistory from "mobx-history/createMemoryHistory";
 import History from "mobx-history/History";
 import proxyquire from "proxyquire";
-import sinon from 'sinon';
+import sinon from "sinon";
 
 
 @inject('history', 'match')

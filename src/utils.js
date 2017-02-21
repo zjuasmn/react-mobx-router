@@ -67,7 +67,7 @@ const compilePath = (pattern, options) => {
   
   const keys = [];
   const re = pathToRegexp(pattern, keys, options);
-  const compiledPattern = { re, keys };
+  const compiledPattern = {re, keys};
   
   if (cacheCount < cacheLimit) {
     cache[pattern] = compiledPattern;
@@ -84,11 +84,8 @@ const compilePath = (pattern, options) => {
  * @param options
  * @returns {*} null is not match,
  */
-export function matchPath(pathname, path, options = {}){
+export function matchPath(pathname, path = '/', options = {}) {
   const {exact = false, strict = false} = options;
-  
-  if (!path)
-    return {url: pathname, isExact: true, params: {}};
   
   const {re, keys} = compilePath(path, {end: exact, strict});
   const match = re.exec(pathname);

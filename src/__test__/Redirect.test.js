@@ -1,12 +1,13 @@
 import React from "react";
 import {render} from "react-dom";
 import {expect} from "chai";
-import {mount} from "enzyme";
-import Match from "../Match";
-import Router from "../Router";
+import {mount, shallow} from "enzyme";
 import createMemoryHistory from "mobx-history/createMemoryHistory";
+import Router from "../Router";
+import Redirect from "../Redirect";
 
-describe('<Match />', () => {
+
+describe('<Redirect />', () => {
   let history = createMemoryHistory();
   window.h = history;
   let wrapper;
@@ -19,21 +20,18 @@ describe('<Match />', () => {
   });
   it('should be a child of Router', () => {
     expect(
-      () => mount(<Match />)
+      () => shallow(<Redirect to="/a"/>)
     ).to.throw();
   });
-  it('will render all the time!', () => {
-    let Gao = (props) => {
-      let {match} = props;
-      return <div>{match && match.url}</div>
-    };
-    setWrapperChildren(<div>
-      <Match path="/sub" component={Gao}>
-      
-      </Match>
-    </div>);
-    expect(wrapper.html()).to.be.eql(`<div><div></div></div>`);
-    history.location = '/sub';
-    expect(wrapper.html()).to.be.eql(`<div><div>/sub</div></div>`);
+  it('works!', () => {
+    setWrapperChildren(<Redirect to="/a"/>);
+    expect(history.location.pathname).to.be.eql('/a');
   });
+  it('won\'t work when from is no match!', () => {
+    setWrapperChildren(<Redirect from='/sub' to="/a"/>);
+    expect(history.location.pathname).to.be.eql('/');
+    history.location = '/sub';
+    expect(history.location.pathname).to.be.eql('/a');
+  });
+  
 });
