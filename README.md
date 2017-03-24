@@ -1,12 +1,9 @@
-# react-mobx-router [![npm package][npm-badge]][npm] [![GitHub issues](https://img.shields.io/github/issues/zjuasmn/react-mobx-router.svg)](https://github.com/zjuasmn/react-mobx-router/issues) [![Build Status](https://travis-ci.org/zjuasmn/react-mobx-router.svg?branch=master)](https://travis-ci.org/zjuasmn/react-mobx-router) [![Coverage Status](https://coveralls.io/repos/github/zjuasmn/react-mobx-router/badge.svg?branch=master)](https://coveralls.io/github/zjuasmn/react-mobx-router?branch=master)
-                    
-[npm-badge]:https://img.shields.io/npm/v/react-mobx-router.svg?style=flat-square
-[npm]:https://www.npmjs.org/package/react-mobx-router
+# react-mobx-router [![](https://img.shields.io/npm/v/react-mobx-router.svg?style=flat-square)](https://www.npmjs.org/package/react-mobx-router) [![GitHub issues](https://img.shields.io/github/issues/zjuasmn/react-mobx-router.svg)](https://github.com/zjuasmn/react-mobx-router/issues) [![Build Status](https://travis-ci.org/zjuasmn/react-mobx-router.svg?branch=master)](https://travis-ci.org/zjuasmn/react-mobx-router) [![Coverage Status](https://coveralls.io/repos/github/zjuasmn/react-mobx-router/badge.svg?branch=master)](https://coveralls.io/github/zjuasmn/react-mobx-router?branch=master)
 
-Project still in progress...
+Project still in progress...  
 Declarative routing for `React` with `mobx` magic!
 
-## You can read the whole document on  **[gitbooks](https://zjuasmn.gitbooks.io/react-mobx-router/)**
+## You can read the whole document on  [**gitbooks**](https://zjuasmn.gitbooks.io/react-mobx-router/)
 
 ## Installation
 
@@ -20,12 +17,11 @@ $ yarn add react-mobx-router
 
 Use CDN
 
-- Assuming `react` is imported since you are development a react project.
-- Import `mobx` [https://unpkg.com/mobx/lib/mobx.umd.js](https://unpkg.com/mobx/lib/mobx.umd.js)
-- Import `react-mobx-router` [https://unpkg.com/react-mobx-router/umd/react-mobx-router.js](https://unpkg.com/react-mobx-router/umd/react-mobx-router.js)
+* Assuming `react` is imported since you are development a react project.
+* Import `mobx` [https://unpkg.com/mobx/lib/mobx.umd.js](https://unpkg.com/mobx/lib/mobx.umd.js)
+* Import `react-mobx-router` [https://unpkg.com/react-mobx-router/umd/react-mobx-router.js](https://unpkg.com/react-mobx-router/umd/react-mobx-router.js)
 
 Then get the `Router` `Route` `Link` component as below
-
 
 ```jsx
 // using ES6 modules
@@ -41,18 +37,18 @@ var Link = ReactMobxRouter.Link
 ```
 
 ## Getting started
+
 Below is a modified version of `BasicExample` in [`React Router(v4)`](https://reacttraining.com/react-router/examples/basic)
 
 Live example is in [Codepen](http://codepen.io/zjuasmn/pen/KaJyYz?editor=0010)
 
 ### HTML
+
 ```html
 <div id='root'></div>
 ```
 
-### Javascript(ES2015)
-
-
+### Javascript\(ES2015\)
 
 ```jsx
 const {HashRouter as Router, Route, Link} = ReactMobxRouter;
@@ -65,15 +61,15 @@ const App = () => (
         <li><Link to="/about">About</Link></li>
         <li><Link to="/topics">Topics</Link></li>
       </ul>
-      
+
       <hr/>
-      
+
       <Route exact component={Page}>
         Home
       </Route>
-      
+
       <Route path="about" component={<Page>About</Page>}/>
-      
+
       <Route path="topics" component="div">
         <h2>Topics</h2>
         <ul>
@@ -98,3 +94,6 @@ const Topic = ({topicId}) => (<div>
 
 ReactDOM.render(<Router><App/></Router>,document.getElementById('root');
 ```
+
+
+

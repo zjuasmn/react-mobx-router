@@ -1,11 +1,12 @@
 # Link
 
 `Link` provides declarative, accessible navigation around your application.
-## properties
 
 ```jsx
 <Link to='/user'>user</Link>
 ```
+
+## Props
 
 - **to**
   - type: `string` | `object`
@@ -24,6 +25,7 @@ Whether `replace` the current entry in `history` instead of adding a new one, wh
 - **context**
   - type: `bool`
   - default: false
+  
 If `true`, navigation is based on matched url in  inner most `Route` holds this `Link`.
 
 ```jsx
