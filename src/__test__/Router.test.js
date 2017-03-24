@@ -18,11 +18,17 @@ class MockRoute extends React.Component {
 }
 
 describe('<Router />', () => {
-  it('should with a child', () => {
+  it('should has a child', () => {
     expect(
       () => mount(<Router history={createMemoryHistory()}>
       </Router>)
     ).to.throw(/React.Children.only/);
+  });
+  it('should pass mobx-history to history prop', () => {
+    expect(
+      () => mount(<Router history={()=>0}>
+      </Router>)
+    ).to.throw();
   });
   it('mount ok', () => {
     expect(
@@ -48,11 +54,9 @@ describe('<Router />', () => {
       () => mount(<Router history={createMemoryHistory()}><MockRoute check={check}/></Router>)
     ).not.throw();
   });
-  it('`history` can change', () => {
+  it('history should not change', () => {
     let check = (props) => {
-      
       let {history, match} = props;
-      
       expect(history).to.be.instanceof(History);
       expect(match).to.have.property('path')
         .that.is.a('string');
@@ -61,9 +65,11 @@ describe('<Router />', () => {
       expect(match).to.have.property('params')
         .that.is.a('object');
     };
-    expect(
-      () => mount(<Router history={createMemoryHistory()}><MockRoute check={check}/></Router>)
-    ).not.throw();
+    let oldHistory = createMemoryHistory();
+    let app = mount(<Router history={oldHistory}><MockRoute check={check}/></Router>)
+    expect(()=> {
+      app.setProps({history: createMemoryHistory()})
+    }).to.throw('history should not change')
   });
 });
 

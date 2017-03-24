@@ -7,7 +7,7 @@ const debug = require('debug')('react-mobx-route:Redirect');
 @observer
 export default class Redirect extends Component {
   static propTypes = {
-    
+    push: PropTypes.bool,
     from: PropTypes.string,
     exact: PropTypes.bool,
     strict: PropTypes.bool,
@@ -22,19 +22,22 @@ export default class Redirect extends Component {
   componentWillMount() {
     this.tryRedirect();
   }
-  tryRedirect(){
-    let {to, from, exact, strict, history:{location:{pathname}}, match:{url}} = this.props;
+  
+  tryRedirect() {
+    let {push, to, from, exact, strict, computedMatch, history: {location: {pathname}}, match: {url}} = this.props;
     let {history} = this.props;
-    let match = matchPath(pathname, resolve(url, from), {exact, strict});
+    let match = computedMatch || matchPath(pathname, resolve(url, from), {exact, strict});
     if (match) {
-      history.location = resolve(url, to);
+      push ? history.push(resolve(url, to)) : history.replace(resolve(url, to));
     }
   }
-  componentWillUpdate(){
+  
+  componentWillUpdate() {
     this.tryRedirect();
   }
+  
   render() {
-    let {to, from, exact, strict, history:{location:{pathname}}, match:{url}} = this.props;
+    let {push, to, from, exact, strict, computedMatch, history: {location: {pathname}}, match: {url}} = this.props;
     return null;
   }
 }

@@ -33,7 +33,7 @@ export function resolve() {
     let path = (i >= 0) ? arguments[i] : '/';
     
     // Skip empty and invalid entries
-    if (typeof path != 'string') {
+    if (typeof path !== 'string') {
       throw new TypeError('Arguments to path.resolve must be strings');
     } else if (!path) {
       continue;
