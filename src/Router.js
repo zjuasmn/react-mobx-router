@@ -1,7 +1,7 @@
-import React, {PropTypes} from 'react'
-import History from 'mobx-history/History'
-import {Provider} from 'mobx-react'
-import  invariant from 'invariant'
+import React from "react";
+import History from "mobx-history/History";
+import {Provider} from "mobx-react";
+import invariant from "invariant";
 const defaultMatch = {
   path: '',
   url: '',
@@ -18,16 +18,8 @@ export default class Router extends React.Component {
     history: historyProp,
   };
   
-  componentWillMount() {
-    this.props.history.startListen();
-  }
-  
   componentWillReceiveProps(nextProps) {
     invariant(nextProps.history === this.props.history, 'history should not change.');
-  }
-  
-  componentWillUnmount() {
-    this.props.history.stopListen();
   }
   
   render() {

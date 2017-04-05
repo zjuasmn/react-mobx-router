@@ -3095,9 +3095,9 @@ mkdirp@0.5.1, mkdirp@0.5.x, "mkdirp@>=0.5 0", mkdirp@^0.5.0, mkdirp@^0.5.1, mkdi
   dependencies:
     minimist "0.0.8"
 
-mobx-history@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/mobx-history/-/mobx-history-1.0.3.tgz#e58b0d90550a6a106d31d012da019234210fcee9"
+mobx-history@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/mobx-history/-/mobx-history-1.0.5.tgz#9fed447c35d8ca9d9127b9b1d08ae71aabc11e81"
   dependencies:
     debug "^2.6.3"
     history "^4.6.1"
