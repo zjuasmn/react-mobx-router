@@ -1,6 +1,7 @@
-import React, {PropTypes} from 'react'
-import {inject} from 'mobx-react'
-import {resolve} from './utils'
+import React from "react";
+import PropTypes from "prop-types";
+import {inject} from "mobx-react";
+import {resolve} from "./utils";
 
 const isModifiedEvent = (event) =>
   !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey);
@@ -61,7 +62,7 @@ export default class Link extends React.Component {
   
   render() {
     let {to, context, replace, history, match, ...oProps} = this.props;
-    if (to == null){
+    if (to === null) {
       return <a href="javascript:" {...oProps} />
     }
     const href = history.createHref(this._getLocation());

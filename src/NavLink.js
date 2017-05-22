@@ -1,6 +1,7 @@
-import React, {PropTypes} from 'react'
-import Match from './Match'
-import Link from './Link'
+import React from "react";
+import PropTypes from "prop-types";
+import Match from "./Match";
+import Link from "./Link";
 
 export default class NavLink extends React.Component {
   static propTypes = {

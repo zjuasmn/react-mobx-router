@@ -1,9 +1,10 @@
-import React, {PropTypes} from "react";
-import {observable, action, extendObservable} from "mobx";
-import {observer, inject} from "mobx-react";
-import {resolve, matchPath} from "./utils";
+import React from "react";
+import PropTypes from "prop-types";
+import {action, extendObservable, observable} from "mobx";
+import {inject, observer} from "mobx-react";
+import {matchPath, resolve} from "./utils";
 import {RenderablePropType} from "react-utilities/utils";
-import Delegate from 'react-utilities/Delegate'
+import Delegate from "react-utilities/Delegate";
 
 @inject('history', 'match')
 @observer

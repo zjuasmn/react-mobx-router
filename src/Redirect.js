@@ -1,11 +1,12 @@
-import React, {Component, PropTypes} from 'react'
-import {resolve, matchPath} from "./utils";
-import {observer, inject} from "mobx-react";
+import React from "react";
+import PropTypes from "prop-types";
+import {matchPath, resolve} from "./utils";
+import {inject, observer} from "mobx-react";
 const debug = require('debug')('react-mobx-route:Redirect');
 
 @inject('history', 'match')
 @observer
-export default class Redirect extends Component {
+export default class Redirect extends React.Component {
   static propTypes = {
     push: PropTypes.bool,
     from: PropTypes.string,

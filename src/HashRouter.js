@@ -1,6 +1,7 @@
-import React, {PropTypes} from 'react'
-import Router from './Router'
-import createHistory from 'mobx-history/createHashHistory'
+import React from "react";
+import PropTypes from "prop-types";
+import Router from "./Router";
+import createHistory from "mobx-history/createHashHistory";
 
 export default class HashRouter extends React.Component {
   static propTypes = {
