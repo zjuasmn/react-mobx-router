@@ -1,5 +1,4 @@
 import React from "react";
-import {render} from "react-dom";
 import {expect} from "chai";
 import {mount, shallow} from "enzyme";
 import createMemoryHistory from "mobx-history/createMemoryHistory";
@@ -9,7 +8,7 @@ import Route from "../Route";
 
 describe('<Route />', () => {
   let history = createMemoryHistory();
-  window.h = history
+  window.h = history;
   let wrapper;
   let setWrapperChildren = (children) => wrapper = mount(<Router history={history} children={children}/>);
   beforeEach(() => {
@@ -33,7 +32,6 @@ describe('<Route />', () => {
       </div>
     </Route>);
     history.location = '/sub';
-    
     // expect(wrapper.contains(<div><div>sub</div></div>)).to.be.true;
     history.location = '/sub/1';
     expect(wrapper.html()).to.be.eql(`<div><div>sub</div><div>1</div></div>`);

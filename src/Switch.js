@@ -15,9 +15,11 @@ export default class Switch extends React.Component {
     debug('update:', this.props);
     const {children, history: {location: {pathname}}, match: {url}, ...props} = this.props;
     const routes = React.Children.toArray(children);
-    let route, match;
+  
     for (let i = 0, length = routes.length; i < length; ++i) {
-      route = routes[i];
+      let route = routes[i];
+      let match = null;
+      
       if (route.type === Route) {
         match = matchPath(pathname, resolve(url, route.props.path || ''), route.props);
       } else if (route.type === Redirect) {
