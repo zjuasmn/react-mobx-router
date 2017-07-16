@@ -62,7 +62,7 @@ export default class Link extends React.Component {
   
   render() {
     let {to, context, replace, history, match, ...oProps} = this.props;
-    if (to === null) {
+    if (!to) {
       return <a href="javascript:" {...oProps} />
     }
     const href = history.createHref(this._getLocation());

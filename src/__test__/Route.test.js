@@ -45,9 +45,9 @@ describe('<Route />', () => {
         </Route>
         <Route path=':id'>
           <div>id
-          <Route path={'../2'}>
-            <span>2</span>
-          </Route>
+            <Route path={'../2'}>
+              <span>2</span>
+            </Route>
           </div>
         </Route>
       </div>
@@ -55,11 +55,19 @@ describe('<Route />', () => {
     history.location = '/sub';
     expect(wrapper.html()).to.be.equal('<div><div>sub</div><!-- react-empty: 4 --><!-- react-empty: 5 --></div>');
   });
-  it('sets params to children',()=>{
+  it('sets params to children', () => {
     setWrapperChildren(<Route path="/sub/:id" component="div">
     </Route>);
     history.location = '/sub/1';
     expect(wrapper.html()).to.be.equal('<div id="1"></div>');
+  });
+  it('sets search params to children', () => {
+    setWrapperChildren(<Route path="/search" component={({search: {id, text}}) =>
+      <div id={id}>{text}</div>
+    }>
+    </Route>);
+    history.location = '/search?id=2&text=a';
+    expect(wrapper.html()).to.be.equal('<div id="2">a</div>');
   });
   describe('path', () => {
     it('should render children component when path is match as prefix', () => {
@@ -82,9 +90,9 @@ describe('<Route />', () => {
       </Route>);
       
       history.location = '/sub';
-      expect(wrapper.contains(<div>sub</div>)).to.be.true;
+      expect(wrapper.contains(<div>sub</div>)).to.be.eql(true);
       history.location = '/other';
-      expect(wrapper.contains(<div>sub</div>)).to.be.true;
+      expect(wrapper.contains(<div>sub</div>)).to.be.eql(true);
     });
     
     it('path with `exact` would only render when exact match', () => {
@@ -93,9 +101,9 @@ describe('<Route />', () => {
       </Route>);
       
       history.location = '/sub';
-      expect(wrapper.contains(<div>sub</div>)).to.be.true;
+      expect(wrapper.contains(<div>sub</div>)).to.be.eql(true);
       history.location = '/sub/1';
-      expect(wrapper.contains(<div>sub</div>)).to.be.false;
+      expect(wrapper.contains(<div>sub</div>)).to.be.eql(false);
     });
   });
 });
