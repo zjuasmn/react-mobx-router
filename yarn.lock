@@ -3959,9 +3959,9 @@ react-dom@^15.4.2:
     loose-envify "^1.1.0"
     object-assign "^4.1.0"
 
-react-utilities@^0.5.4:
-  version "0.5.4"
-  resolved "https://registry.yarnpkg.com/react-utilities/-/react-utilities-0.5.4.tgz#929c8815d05409d34768f15f339c1b41010b5f31"
+react-utilities@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/react-utilities/-/react-utilities-0.6.0.tgz#4a010ff546ffed6d9875553db3145c204eda7228"
   dependencies:
     debug "^2.6.1"
     is-plain-object "^2.0.1"
