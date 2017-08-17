@@ -14,15 +14,15 @@ export default class NavLink extends React.Component {
       PropTypes.object
     ])
   };
-  
+
   static defaultProps = {
     to: null,
     replace: false,
     context: false,
   };
-  
+
   render() {
-    let {to, context, replace, activeClassName, className = '', activeStyle, style = {}, onClick, target, children, ...oProps} = this.props;
+    let {to, context, replace, activeClassName = 'active', className = '', activeStyle, style = {}, onClick, target, children, ...oProps} = this.props;
     return (
       <Match path={to} _={({match}) => match ? {
         className: className + ' ' + activeClassName,
