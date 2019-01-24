@@ -11,6 +11,10 @@ const debug = require('debug')('react-mobx-router:Switch');
 @inject('history', 'match')
 @observer
 export default class Switch extends React.Component {
+  _getAliasMatchPath = (route) => {
+    const {history: {location: {pathname}}, match: {url}} = this.props;
+    return !!route.props.alias ? matchPath(pathname, resolve(url, route.props.alias || ''), route.props) : null
+  };
   render() {
     debug('update:', this.props);
     const {children, history: {location: {pathname}}, match: {url}, ...props} = this.props;
@@ -21,7 +25,7 @@ export default class Switch extends React.Component {
       let match = null;
       
       if (route.type === Route) {
-        match = matchPath(pathname, resolve(url, route.props.path || ''), route.props);
+        match = matchPath(pathname, resolve(url, route.props.path || ''), route.props) || this._getAliasMatchPath(route);
       } else if (route.type === Redirect) {
         match = matchPath(pathname, resolve(url, route.props.from || ''), route.props);
       } else {
