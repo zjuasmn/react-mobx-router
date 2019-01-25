@@ -51,4 +51,25 @@ describe('<Switch />', () => {
     history.location = '/xxx/111';
     expect(wrapper.html()).to.be.equal(null);
   });
+
+  it('work with alias route', () => {
+    setWrapperChildren(<Switch>
+      <Route exact path="/" alias="dashboard">
+        <div>Dashboard</div>
+      </Route>
+      <Route exact path="page" alias="page/:id">
+        <div>Page</div>
+      </Route>
+    </Switch>);
+    history.location = '/';
+    expect(wrapper.html()).to.be.equal('<div>Dashboard</div>');
+    history.location = '/dashboard';
+    expect(wrapper.html()).to.be.equal('<div>Dashboard</div>');
+    history.location = '/page';
+    expect(wrapper.html()).to.be.equal('<div>Page</div>');
+    history.location = '/page/1';
+    expect(wrapper.html()).to.be.equal('<div id="1">Page</div>');
+    history.location = '/other/111';
+    expect(wrapper.html()).to.be.equal(null);
+  });
 });

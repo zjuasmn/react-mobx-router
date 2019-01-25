@@ -55,11 +55,31 @@ describe('<Route />', () => {
     history.location = '/sub';
     expect(wrapper.html()).to.be.equal('<div><div>sub</div><!-- react-empty: 4 --><!-- react-empty: 5 --></div>');
   });
+  it('alias can be nested with relative path', () => {
+    setWrapperChildren(<Route path="/sub">
+      <div>
+        <div>sub</div>
+        <Route path='/sub/1' alias='/sub/:id'>
+          <div>1</div>
+        </Route>
+      </div>
+    </Route>);
+    history.location = '/sub/1';
+    expect(wrapper.html()).to.be.eql(`<div><div>sub</div><div>1</div></div>`);
+    history.location = '/sub/2';
+    expect(wrapper.html()).to.be.eql(`<div><div>sub</div><div id="2">1</div></div>`);
+  });
   it('sets params to children', () => {
     setWrapperChildren(<Route path="/sub/:id" component="div">
     </Route>);
     history.location = '/sub/1';
     expect(wrapper.html()).to.be.equal('<div id="1"></div>');
+  });
+  it('alias sets params to children', () => {
+    setWrapperChildren(<Route path="/second" alias="/sub/:id" component="div">
+    </Route>);
+    history.location = '/sub/2';
+    expect(wrapper.html()).to.be.equal('<div id="2"></div>');
   });
   it('sets search params to children', () => {
     setWrapperChildren(<Route path="/search" component={({search: {id, text}}) =>
@@ -103,6 +123,34 @@ describe('<Route />', () => {
       history.location = '/sub';
       expect(wrapper.contains(<div>sub</div>)).to.be.eql(true);
       history.location = '/sub/1';
+      expect(wrapper.contains(<div>sub</div>)).to.be.eql(false);
+    });
+
+    it('can work with an alias', () => {
+      setWrapperChildren(<Route path='/first' alias='/second'>
+        <div>sub</div>
+      </Route>);
+
+      history.location = '/first';
+      expect(wrapper.contains(<div>sub</div>)).to.be.eql(true);
+      history.location = '/second';
+      expect(wrapper.contains(<div>sub</div>)).to.be.eql(true);
+      history.location = '/other';
+      expect(wrapper.contains(<div>sub</div>)).to.be.eql(false);
+      history.location = '/';
+      expect(wrapper.contains(<div>sub</div>)).to.be.eql(false);
+    });
+
+    it('alias work without path', () => {
+      setWrapperChildren(<Route exact alias='/sub'>
+        <div>sub</div>
+      </Route>);
+
+      history.location = '/sub';
+      expect(wrapper.contains(<div>sub</div>)).to.be.eql(true);
+      history.location = '/';
+      expect(wrapper.contains(<div>sub</div>)).to.be.eql(true);
+      history.location = '/other';
       expect(wrapper.contains(<div>sub</div>)).to.be.eql(false);
     });
   });

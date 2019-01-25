@@ -20,13 +20,20 @@ export default class Route extends React.Component {
   };
   static defaultProps = {
     path: '',
+    alias: '',
     exact: false,
     strict: false,
   };
+  get _aliasMatchPath() {
+    const { alias, exact, strict, history: { location: { pathname } }, match: { url } } = this.props;
+    return !!alias ? matchPath(pathname, resolve(url, alias), { exact, strict }) : null
+  };
   render() {
     debug('update:', this.props);
-    let {computedMatch, path, exact, strict, history: {location: {pathname, search}}, match: {url}, ...props} = this.props;
-    let match = computedMatch || matchPath(pathname, resolve(url, path), {exact, strict});
+    let {computedMatch, path, alias, exact, strict, history: {location: {pathname, search}}, match: {url}, ...props} = this.props;
+    let match = computedMatch
+      || matchPath(pathname, resolve(url, path), {exact, strict})
+      || this._aliasMatchPath;
     if (match && search && search.length > 1) {
       match.params.search = qs.parse(search.substr(1));
     }
